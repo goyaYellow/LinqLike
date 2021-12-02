@@ -1,0 +1,2 @@
+# LinqLike
+オレオレLinq拡張
