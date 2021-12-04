@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommonTools\CommonTools.csproj" />
+    <ProjectReference Include="..\LinqLike\LinqLike.csproj" />
   </ItemGroup>
-
 </Project>
