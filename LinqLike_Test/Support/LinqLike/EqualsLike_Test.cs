@@ -3,7 +3,7 @@ using System.Linq;
 using LinqLike;
 using Xunit;
 
-namespace Tools_Test.LinqLike
+namespace LinqLike_Test
 {
     /// <summary> <see cref="EqualsLike"/>に対するテストです </summary>
     public class EqualsLike_Test

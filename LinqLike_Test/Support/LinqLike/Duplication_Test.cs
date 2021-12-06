@@ -4,7 +4,7 @@ using System.Linq;
 using LinqLike;
 using Xunit;
 
-namespace Tools_Test.LinqLike
+namespace LinqLike_Test
 {
     /// <summary> <see cref="Duplication"/>に対するテストです </summary>
     public class Duplication_Test

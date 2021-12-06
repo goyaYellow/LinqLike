@@ -5,7 +5,7 @@ using System.Linq;
 using LinqLike;
 using Xunit;
 
-namespace Tools_Test.LinqLike
+namespace LinqLike_Test
 {
     /// <summary> <see cref="Randomness"/>に対するテストです </summary>
     public class Randomness_Test
