@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tools.Support;
-using Tools.Support.LinqLike;
-using Xunit;
 using LinqLike;
+using Xunit;
 
 namespace Tools_Test.LinqLike
 {

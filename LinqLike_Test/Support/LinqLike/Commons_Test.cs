@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using LinqLike;
-using Tools.ValueObject.SizeObj;
 using Xunit;
 
-namespace Tools_Test.LinqLike
+namespace LinqLike_Test
 {
     /// <summary> <see cref="LinqLike"/>に対するテストです </summary>
     public class Commons_Test
@@ -112,7 +111,7 @@ namespace Tools_Test.LinqLike
             [Fact]
             public void 要素まで別参照だが値が同じ別のイテレータが返る()
             {
-                var source = new List<Length> {
+                var source = new List<Sample1> {
                     new (1),
                     new (2),
                     new (3),
@@ -279,17 +278,17 @@ namespace Tools_Test.LinqLike
             [Fact]
             public void 最大値を持つインスタンスを返す()
             {
-                var baseSize = new Size(new(10), new(10), new(10));
-                var hasMaxLength = baseSize with { Length = new(100000) };
-                var sizes = new List<Size>() {
+                var baseSize = new SampleComplexReocrd(new(10), new(10), new(10));
+                var hasMaxLength = baseSize with { Value1 = new(100000) };
+                var samples = new List<SampleComplexReocrd>() {
                     baseSize,
-                    baseSize with { Length = new(20) },
-                    baseSize with { Width = new(20) },
-                    baseSize with { Height = new(20) },
+                    baseSize with { Value1 = new(20) },
+                    baseSize with { Valeu2 = new(20) },
+                    baseSize with { Valeu3 = new(20) },
                     hasMaxLength,
                 };
 
-                var actual = sizes.MaxBy(x => x.Length);
+                var actual = samples.MaxBy(x => x.Value1);
 
                 Assert.Equal(hasMaxLength, actual);
             }
@@ -297,9 +296,9 @@ namespace Tools_Test.LinqLike
             [Fact]
             public void サイズが0の場合は例外をスローする()
             {
-                var sizes = new List<Size>() { };
+                var samples = new List<SampleComplexReocrd>() { };
 
-                Assert.Throws<InvalidOperationException>(() => sizes.MaxBy(x => x.Length));
+                Assert.Throws<InvalidOperationException>(() => samples.MaxBy(x => x.Value1));
             }
         }
 
@@ -309,17 +308,17 @@ namespace Tools_Test.LinqLike
             [Fact]
             public void 最小値を持つインスタンスを返す()
             {
-                var baseSize = new Size(new(10), new(10), new(10));
-                var hasMinLength = baseSize with { Length = new(1) };
-                var sizes = new List<Size>() {
-                    baseSize,
-                    baseSize with { Length = new(20) },
-                    baseSize with { Width = new(20) },
-                    baseSize with { Height = new(20) },
+                var baseSample = new SampleComplexReocrd(new(10), new(10), new(10));
+                var hasMinLength = baseSample with { Value1 = new(1) };
+                var sizes = new List<SampleComplexReocrd>() {
+                    baseSample,
+                    baseSample with { Value1 = new(20) },
+                    baseSample with { Valeu2 = new(20) },
+                    baseSample with { Valeu2 = new(20) },
                     hasMinLength,
                 };
 
-                var actual = sizes.MinBy(x => x.Length);
+                var actual = sizes.MinBy(x => x.Value1);
 
                 Assert.Equal(hasMinLength, actual);
             }
@@ -327,9 +326,9 @@ namespace Tools_Test.LinqLike
             [Fact]
             public void サイズが0の場合は例外をスローする()
             {
-                var sizes = new List<Size>() { };
+                var sizes = new List<SampleComplexReocrd>() { };
 
-                Assert.Throws<InvalidOperationException>(() => sizes.MinBy(x => x.Length));
+                Assert.Throws<InvalidOperationException>(() => sizes.MinBy(x => x.Value1));
             }
         }
     }
