@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tools.OriginalException;
 
-namespace Tools.Support.LinqLike
+namespace LinqLike
 {
     /// <summary> LINQっぽい使い勝手の拡張を提供します </summary>
     public static class Commons
@@ -84,8 +80,9 @@ namespace Tools.Support.LinqLike
         {
             var ret = new List<TSource>();
 
-            foreach (var s in source) ret.Add(s.DeepCopy());
+            // TODO Nuget shite yuukouka
 
+            // foreach (var s in source) ret.Add(s.DeepCopy());
             return ret;
         }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tools.Support.LinqLike
+namespace LinqLike
 {
     /// <summary>　エラー定義 </summary>
     　internal static class Error

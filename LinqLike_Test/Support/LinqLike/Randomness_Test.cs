@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using Tools.Support.LinqLike;
-using Tools.ValueObject.SizeObj;
+using LinqLike;
 using Xunit;
 
 namespace Tools_Test.LinqLike

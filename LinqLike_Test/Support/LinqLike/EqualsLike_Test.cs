@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Tools.Support;
 using Tools.Support.LinqLike;
 using Xunit;
+using LinqLike;
 
 namespace Tools_Test.LinqLike
 {

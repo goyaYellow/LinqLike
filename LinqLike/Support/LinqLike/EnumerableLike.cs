@@ -17,7 +17,6 @@ namespace Tools.Support.LinqLike
         public static IEnumerable<int> RangeTo(int start, int end)
         {
             var count = end - start;
-            if (count.IsNegative()) throw new ArgumentException($"{end}が{start}より前です。");
             return Enumerable.Range(start, count);
         }
 

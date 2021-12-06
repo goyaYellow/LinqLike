@@ -14,7 +14,6 @@ namespace Tools.ValueObject.SizeObj
         /// <param name="value">長さ</param>
         public Width(int value) : base(value)
         {
-            if (value.IsNegative()) throw new ArgumentException($"nameof(value) は負の数を設定できません");
         }
     }
 }

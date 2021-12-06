@@ -1,6 +1,8 @@
 ﻿using System;
 
-namespace Tools.OriginalException
+#pragma warning disable SA1649 // File name should match first type name
+
+namespace LinqLike
 {
     /// <summary> バグでしかないんじゃない？というタイミングでスローされる例外です </summary>
     public class JustBugException : Exception
@@ -16,3 +18,5 @@ namespace Tools.OriginalException
         }
     }
 }
+
+#pragma warning restore SA1649 // File name should match first type name

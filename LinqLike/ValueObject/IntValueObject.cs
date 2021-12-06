@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tools.OriginalException;
-using Tools.Support;
 
 namespace Tools.ValueObject
 {
@@ -24,10 +18,6 @@ namespace Tools.ValueObject
         /// <summary> 保持している値を文字列として返します </summary>
         /// <returns> 値 </returns>
         public string AsString() => this.Value.ToString();
-
-        /// <summary>値が１以上の場合、trueを返します</summary>
-        /// <returns>true:値が１以上 false:それ以外</returns>
-        public bool Any() => this.Value.IsPositive();
 
         #region C#規定関数のオーバーライドやIF実装
 

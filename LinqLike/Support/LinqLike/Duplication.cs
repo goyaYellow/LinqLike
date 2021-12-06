@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tools.OriginalException;
 
-namespace Tools.Support.LinqLike
+namespace LinqLike
 {
     /// <summary> 要素の重複を扱う機能を提供します </summary>
     public static class Duplication

@@ -2,11 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tools.OriginalException;
 
-namespace Tools.Support.LinqLike
+namespace LinqLike
 {
     /// <summary> SequenceEqualっぽい機能を提供します </summary>
     public static class EqualsLike

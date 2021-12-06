@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tools.Support.LinqLike
+namespace LinqLike
 {
     /// <summary> ランダムさを利用する機能を提供します </summary>
     public static class Randomness
