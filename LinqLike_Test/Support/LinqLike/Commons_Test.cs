@@ -110,7 +110,7 @@ namespace Tools_Test.LinqLike
         public class イテレータのDeepCopyが出来る
         {
             [Fact]
-            public void 要素まで別参照だが値が同じ別の列挙が返る()
+            public void 要素まで別参照だが値が同じ別のイテレータが返る()
             {
                 var source = new List<Length> {
                     new (1),

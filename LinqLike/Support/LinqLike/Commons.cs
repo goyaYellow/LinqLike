@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MuneakiTools.CommonExtentions;
 
 namespace LinqLike
 {
@@ -80,9 +81,7 @@ namespace LinqLike
         {
             var ret = new List<TSource>();
 
-            // TODO Nuget shite yuukouka
-
-            // foreach (var s in source) ret.Add(s.DeepCopy());
+            foreach (var s in source) ret.Add(s.DeepCopy());
             return ret;
         }
 
