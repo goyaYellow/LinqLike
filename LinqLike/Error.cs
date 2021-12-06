@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LinqLike
 {
     /// <summary>　エラー定義 </summary>
-    　internal static class Error
+    internal static class Error
     {
         /// <summary> カウントが0だといけないのに0のイテレータを渡された場合のテンプレ </summary>
         public static　readonly InvalidOperationException Empty = new InvalidOperationException("空のリストはダメです");

@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <!-- Wariningをエラー扱いにする。無慈悲！ -->
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
