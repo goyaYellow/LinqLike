@@ -9,7 +9,7 @@ namespace LinqLike
     public static class EqualsLike
     {
         /// <summary> 多次元コレクションに対する<see cref="Enumerable.SequenceEqual{TSource}(IEnumerable{TSource}, IEnumerable{TSource})"/>です </summary>
-        /// <remarks> イテレータでなはい要素が出現した時点で再起呼び出しを打ち切ります。つまり、Dict・Group等があった場合に、その値メンバまでは展開されません。 </remarks>
+        /// <remarks> イテレータでなはい要素が出現した時点で再帰呼び出しを打ち切ります。つまり、Dict・Group等があった場合に、その値メンバまでは展開されません。 </remarks>
         /// <typeparam name="TSource">比較したいリストが持つ型</typeparam>
         /// <param name="source">自分</param>
         /// <param name="other">比較相手</param>
@@ -28,7 +28,7 @@ namespace LinqLike
 
             if (isIterator && isNotStr)
             {
-                // 要素がイテレータなら分解して再起呼び出し
+                // 要素がイテレータなら分解して再帰呼び出し
                 var pair = source.Zip(other, (s, o) // Countが同じなのは上で確認済み
                     => new {
                         // 要素が値型の場合直接キャストすると失敗するので,一度IEnumerable化してCast関数を通しています
@@ -69,7 +69,7 @@ namespace LinqLike
         }
 
         /// <summary> 自分に比較対象が全て含まれている場合にTrueを返します </summary>
-        /// <remarks> 重複する要素も分けて確認します（比較対象に"X"が2つあれば自分にも"X"が2つ以上ないとFalse） </remarks>
+        /// <remarks> 重複する要素も分けて確認します（比較対象に"X"が2つあれば自分にも"X"が2つないとFalse） </remarks>
         /// <typeparam name="TSource">型</typeparam>
         /// <param name="source">自分</param>
         /// <param name="other">比較相手</param>
