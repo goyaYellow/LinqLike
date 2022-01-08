@@ -16,7 +16,7 @@ namespace LinqLike
         /// <returns>等価:True、等価じゃない:False</returns>
         public static bool SequenceEqualNestable<TSource>(this IEnumerable<TSource> source, IEnumerable<TSource>? other)
         {
-            /// <see cref="IEquatable{T}.Equals(T?)"/>で使えるようにしたいので、引数にNullを許容してここでNullチェック
+            // <see cref="IEquatable{T}.Equals(T?)"/>で使えるようにしたいので、引数にNullを許容してここでNullチェック
             if (other is null) return false;
 
             if (ReferenceEquals(source, other)) return true;
@@ -58,7 +58,7 @@ namespace LinqLike
         /// <returns>等価:True、等価じゃない:False</returns>
         public static bool SequenceEqualOrderless<TSource>(this IEnumerable<TSource> source, IEnumerable<TSource>? other)
         {
-            /// <see cref="IEquatable{T}.Equals(T?)"/>で使えるようにしたいので、引数にNullを許容してここでNullチェック
+            // <see cref="IEquatable{T}.Equals(T?)"/>で使えるようにしたいので、引数にNullを許容してここでNullチェック
             if (other is null) return false;
 
             if (ReferenceEquals(source, other)) return true;

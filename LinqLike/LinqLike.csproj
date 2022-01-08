@@ -1,14 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/goyaYellow/LinqLike</PackageProjectUrl>
     <Authors>GoyaYellow</Authors>
+    <Version>1.0.1</Version>
+    <Description>Linqに似た機能群を提供します</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/goyaYellow/linqlike.git</RepositoryUrl>
+    <PackageReleaseNotes>xmlコメントの有効化＆依存パッケージのアップデート</PackageReleaseNotes>
+    <Company />
+    <Product />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\j0114550\Desktop\リポジトリ\linqlike\LinqLike\LinqLike.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\j0114550\Desktop\リポジトリ\linqlike\LinqLike\LinqLike.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MuneakiTools" Version="1.0.0" />
+    <PackageReference Include="MuneakiTools" Version="1.0.2" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LinqLike</name>
+    </assembly>
+    <members>
+        <member name="T:LinqLike.Commons">
+            <summary> LINQっぽい使い勝手の拡張を提供します </summary>
+        </member>
+        <member name="M:LinqLike.Commons.AsString``1(System.Collections.Generic.IEnumerable{``0},System.Char)">
+            <summary>　イテレータのメンバを文字列化して返します　</summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <param name="source">文字列化したいイテレータ</param>
+            <param name="sepalater">セパレータ。デフォルトはカンマ。</param>
+            <returns>文字列</returns>
+        </member>
+        <member name="M:LinqLike.Commons.Sepalate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>　与えた条件式に 合致する or 合致しない 要素に分割して返します　</summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <param name="source">分割したいイテレータ</param>
+            <param name="predicate">分割の条件式</param>
+            <returns> Matched:条件式に合致する要素一覧、UnMatched:条件式に合致しない要素一覧</returns>
+        </member>
+        <member name="M:LinqLike.Commons.CreteHashCode``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary> イテレータの値を用いてハッシュ値を生成します </summary>
+            <remarks>
+            <para> イテレータの実態（List or Dict など）が異なっても同じ値になります </para>
+            <para> イテレータ内の値の格納順位が異なっても値がおなじなら、同じハッシュ値になります </para>
+            </remarks>
+            <typeparam name="TSource"> 型 </typeparam>
+            <param name="source"> ハッシュ値を生成したいイテレータ </param>
+            <returns> ハッシュ値 </returns>
+        </member>
+        <member name="M:LinqLike.Commons.SequenceDeepCopy``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary> イシーケンス丸ごとDeepコピーします </summary>
+            <remarks> <see cref="M:MuneakiTools.CommonExtentions.CommonExtentions.DeepCopy``1(``0)"/>を使用するので、同関数の注意が必要です </remarks>
+            <typeparam name="TSource">型</typeparam>
+            <param name="source">自分</param>
+            <returns>等価:True、等価じゃない:False</returns>
+        </member>
+        <member name="M:LinqLike.Commons.Empty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary> 要素が空ならTruを返します </summary>
+            <typeparam name="TSource"> 元ネタのイテレータのサイズ </typeparam>
+            <param name="source"> 確認したいイテレータ </param>
+            <returns> 空ならTrue, 要素有ならFalse </returns>
+        </member>
+        <member name="M:LinqLike.Commons.Empty``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary> 要素が空ならTruを返します </summary>
+            <typeparam name="TSource">元ネタのイテレータのサイズ</typeparam>
+            <param name="source">確認したいイテレータ</param>
+            <param name="predicate">比較に使用する値の抽出関数</param>
+            <returns> 空ならTrue, 要素有ならFalse </returns>
+        </member>
+        <member name="M:LinqLike.Commons.Only``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>　イテレータのサイズが1ならTrueを返します　</summary>
+            <typeparam name="TSource">元ネタのイテレータのサイズ</typeparam>
+            <param name="source">確認したいイテレータ</param>
+            <returns> サイズが1ならTrue, 1以外ならFalse </returns>
+        </member>
+        <member name="M:LinqLike.Commons.Only``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>　イテレータのサイズが1ならTrueを返します　</summary>
+            <typeparam name="TSource">元ネタのイテレータのサイズ</typeparam>
+            <param name="source">確認したいイテレータ</param>
+            <param name="predicate">比較に使用する値の抽出関数</param>
+            <returns> サイズが1ならTrue, 1以外ならFalse </returns>
+        </member>
+        <member name="M:LinqLike.Commons.Many``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>　イテレータのサイズが2以上ならTrueを返します　</summary>
+            <typeparam name="TSource">元ネタのイテレータのサイズ</typeparam>
+            <param name="source">確認したいイテレータ</param>
+            <returns> サイズが2以上ならTrue, 2未満ならFalse </returns>
+        </member>
+        <member name="M:LinqLike.Commons.Many``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>　イテレータのサイズが2以上ならTrueを返します　</summary>
+            <typeparam name="TSource">元ネタのイテレータのサイズ</typeparam>
+            <param name="source">確認したいイテレータ</param>
+            <param name="predicate">比較に使用する値の抽出関数</param>
+            <returns> サイズが2以上ならTrue, 2未満ならFalse </returns>
+        </member>
+        <member name="M:LinqLike.Commons.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary> <typeparamref name="TKey"/>が最大の要素を返します </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <typeparam name="TKey">　比較に使用する値の型　</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <param name="selector">比較に使用する値の抽出関数</param>
+            <returns><typeparamref name="TKey"/>が最大の要素</returns>
+            <exception cref="T:System.InvalidOperationException">要素が空だとスローします</exception>
+        </member>
+        <member name="M:LinqLike.Commons.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary> <typeparamref name="TKey"/>が最小の要素を返します </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <typeparam name="TKey">　比較に使用する値の型　</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <param name="selector">比較に使用する値の抽出関数</param>
+            <returns><typeparamref name="TKey"/>が最大の要素</returns>
+            <exception cref="T:System.InvalidOperationException">要素が空だとスローします</exception>
+        </member>
+        <member name="T:LinqLike.Duplication">
+            <summary> 要素の重複を扱う機能を提供します </summary>
+        </member>
+        <member name="M:LinqLike.Duplication.HasDuplicate``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary> 重複があればTrueを返します </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <returns>重複あり:True, なし：False</returns>
+        </member>
+        <member name="M:LinqLike.Duplication.HasDuplicate``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary> 重複があればTrueを返します（条件指定Ver） </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <param name="predicate">等価性評価に使用する値の抽出関数</param>
+            <returns>重複あり:True, なし：False</returns>
+        </member>
+        <member name="M:LinqLike.Duplication.HasDuplicateBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary> 重複があればTrueを返します(要素指定Ver) </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <typeparam name="TKey">チェックに用いる値の型</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <param name="selector">等価性評価に使用する値の抽出関数</param>
+            <returns>重複あり:True, なし：False</returns>
+        </member>
+        <member name="M:LinqLike.Duplication.HasDifference``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary> 異なる値があればTrueを返します </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <returns> 異なる値あり:True, なし：False </returns>
+        </member>
+        <member name="M:LinqLike.Duplication.HasDifference``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary> 異なる値があればTrueを返します(条件指定Ver) </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <param name="predicate">等価性評価に使用する値の抽出関数</param>
+            <returns> 異なる値あり:True, なし：False </returns>
+        </member>
+        <member name="M:LinqLike.Duplication.HasDifferenceBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary> 異なる値があればTrueを返します(要素指定Ver) </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <typeparam name="TKey">チェックに用いる値の型</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <param name="selector">等価性評価に使用する値の抽出関数</param>
+            <returns> 異なる値あり:True, なし：False </returns>
+        </member>
+        <member name="M:LinqLike.Duplication.FindDeplicated``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary> 重複している要素の一覧（重複なし）を返します </summary>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <returns>重複している要素の一覧（重複なし）</returns>
+        </member>
+        <member name="M:LinqLike.Duplication.FindDeplicatedBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary> <typeparamref name="TKey"/>が重複している要素の一覧（重複なし）を返します </summary>
+            <remarks> 返るのは重複キーが同じ要素達の内、先頭の物のみになります </remarks>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <typeparam name="TKey">等価性評価に使用する値の形</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <param name="selector">比較に使用する値の抽出関数</param>
+            <returns><typeparamref name="TKey"/>が重複している要素の一覧（重複なし）</returns>
+        </member>
+        <member name="M:LinqLike.Duplication.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary> <see cref="M:System.Linq.Enumerable.Distinct``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})"/>のセレクター使用版 </summary>
+            <remarks> 返るのは重複キーが同じ要素達の内、先頭の物のみになります </remarks>
+            <typeparam name="TSource">元ネタのイテレータが持つ型</typeparam>
+            <typeparam name="TKey">等価性評価に使用する値の形</typeparam>
+            <param name="source">重複を確認したいイテレータ</param>
+            <param name="selector">比較に使用する値の抽出関数</param>
+            <returns><typeparamref name="TKey"/>が重複している要素の一覧（重複なし）</returns>
+        </member>
+        <member name="T:LinqLike.EnumerableLike">
+            <summary>　<see cref="T:System.Linq.Enumerable"/>っぽい使い勝手の機能を提供します　</summary>
+        </member>
+        <member name="M:LinqLike.EnumerableLike.RangeTo(System.Int32,System.Int32)">
+            <summary>　指定された始点-終点間の連番を返します　</summary>
+            <param name="start">始点</param>
+            <param name="end">終点</param>
+            <returns>指定された範囲の連番</returns>
+            <exception cref="T:System.ArgumentException">指定範囲がおかしい場合にスローします</exception>
+        </member>
+        <member name="M:LinqLike.EnumerableLike.RangeTo(System.Int32)">
+            <summary>　0-指定された終点間の連番を返します　</summary>
+            <param name="end">終点</param>
+            <returns>指定された範囲の連番</returns>
+            <exception cref="T:System.ArgumentException">指定範囲がおかしい場合にスローします</exception>
+        </member>
+        <member name="T:LinqLike.EqualsLike">
+            <summary> SequenceEqualっぽい機能を提供します </summary>
+        </member>
+        <member name="M:LinqLike.EqualsLike.SequenceEqualNestable``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary> 多次元コレクションに対する<see cref="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})"/>です </summary>
+            <remarks> イテレータでなはい要素が出現した時点で再帰呼び出しを打ち切ります。つまり、Dict・Group等があった場合に、その値メンバまでは展開されません。 </remarks>
+            <typeparam name="TSource">比較したいリストが持つ型</typeparam>
+            <param name="source">自分</param>
+            <param name="other">比較相手</param>
+            <returns>等価:True、等価じゃない:False</returns>
+        </member>
+        <member name="M:LinqLike.EqualsLike.SequenceEqualOrderless``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary> 要素の順番が一致しなくてもOKな<see cref="M:System.Linq.Enumerable.SequenceEqual``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})"/>です </summary>
+            <remarks> 要素がコレクションだった場合にさらに展開したりはしません。めんどくさいから。 </remarks>
+            <typeparam name="TSource">比較したいリストが持つ型</typeparam>
+            <param name="source">自分</param>
+            <param name="other">比較相手</param>
+            <returns>等価:True、等価じゃない:False</returns>
+        </member>
+        <member name="M:LinqLike.EqualsLike.SequenceContains``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary> 自分に比較対象が全て含まれている場合にTrueを返します </summary>
+            <remarks> 重複する要素も分けて確認します（比較対象に"X"が2つあれば自分にも"X"が2つないとFalse） </remarks>
+            <typeparam name="TSource">型</typeparam>
+            <param name="source">自分</param>
+            <param name="other">比較相手</param>
+            <returns>全て含まれている:True、含まれていないものがいる:False</returns>
+        </member>
+        <member name="T:LinqLike.Error">
+            <summary>　エラー定義 </summary>
+        </member>
+        <member name="F:LinqLike.Error.Empty">
+            <summary> カウントが0だといけないのに0のイテレータを渡された場合のテンプレ </summary>
+        </member>
+        <member name="M:LinqLike.Error.OutOfRange``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary> イテレータのレンジを超えている数が指定された場合のテンプレ </summary>
+            <param name="source">イテレータ</param>
+            <param name="count">指定された数</param>
+            <typeparam name="T">型</typeparam>
+            <returns>テンプレ</returns>
+        </member>
+        <member name="T:LinqLike.JustBugException">
+            <summary> バグでしかないんじゃない？というタイミングでスローされる例外です </summary>
+        </member>
+        <member name="P:LinqLike.JustBugException.Template">
+            <summary>　テンプレ例外インスタンス　</summary>
+        </member>
+        <member name="M:LinqLike.JustBugException.#ctor(System.String,System.Exception)">
+            <summary> Initializes a new instance of the <see cref="T:LinqLike.JustBugException"/> class. </summary>
+            <param name="massage"> メッセージ </param>
+            <param name="innerException"> インナーエクセプション </param>
+        </member>
+        <member name="T:LinqLike.Randomness">
+            <summary> ランダムさを利用する機能を提供します </summary>
+        </member>
+        <member name="M:LinqLike.Randomness.Random``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary> イテレータの要素をランダムに一つ取得します </summary>
+            <typeparam name="T">型</typeparam>
+            <param name="source">対象となるイテレータ</param>
+            <returns>ランダムに取得された値</returns>
+            <exception cref="T:System.InvalidOperationException">イテレータが空の場合にスローされます</exception>
+        </member>
+        <member name="M:LinqLike.Randomness.RandomTake``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary> イテレータの要素を指定数分ランダムに取得します </summary>
+            <typeparam name="T">型</typeparam>
+            <param name="source">対象となるイテレータ</param>
+            <param name="count">取得したい数</param>
+            <returns>ランダムに取得された値</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">指定数がイテレータのサイズより大きい場合にスローされます</exception>
+        </member>
+        <member name="M:LinqLike.Randomness.RandomAll``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary> イテレータの要素の順番をランダムにして返します </summary>
+            <typeparam name="T">型</typeparam>
+            <param name="source">対象となるイテレータ</param>
+            <returns>順番をランダムにされた値</returns>
+        </member>
+    </members>
+</doc>
